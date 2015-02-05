@@ -25,7 +25,7 @@ yum install python-pip python-devel python-virtualenv
 # For PDF creation
 yum install libxslt-devel libxml2-devel python-lxml
 # For Python PIL
-yum install libtiff-devel libjpeg-devel libzip-devel freetype-devel lcms2-devel tcl-devel tk-devel
+yum install libtiff-devel libjpeg-devel libzip-devel freetype-devel lcms2-devel tcl-devel tk-devel gcc
 
 
 #################### POSTGRESQL ######################
