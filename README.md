@@ -14,9 +14,10 @@ git clone https://github.com/GlobAllomeTree/config globallometree_config
 git clone https://github.com/GlobAllomeTree/GlobAllomeTree globallometree_app
 
 
-#################### EPEL ########################
+#################### YUM REPOS ########################
 
 yum install epel-release
+ln -s /opt/globallometree_config/nginx/nginx.repo /etc/yum.repos.d/nginx.repo
 
 #################### PYTHON GENERAL ######################
 
@@ -67,5 +68,19 @@ source /opt/globallometree_virtualenv/bin/activate
 
 # Use pip to install the requirements
 pip install -r /opt/globallometree_app/server/requirements.txt
+
+#################### NGINX ###################
+
+# Install nginx package
+yum install nginx
+chkconfig nginx on
+
+# Remove default nginx server
+rm /etc/nginx/conf.d/default.conf
+rm /etc/nginx/conf.d/example_ssl.conf
+
+# Symlink the config
+ln -s /opt/globallometree_config/nginx/globallometree.conf /etc/nginx/conf.d/globallometree.conf
+
 
 ```
