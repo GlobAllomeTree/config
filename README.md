@@ -14,7 +14,7 @@ git clone https://github.com/GlobAllomeTree/config globallometree_config
 # Clone the app repository into globallometree_app
 git clone https://github.com/GlobAllomeTree/GlobAllomeTree globallometree_app
 
-# Install packages for postgresql
+#################### POSTGRESQL ######################
 
 # Change the default data directory for postgresql
 mkdir /opt/globallometree_data/postgresql
