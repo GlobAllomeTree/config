@@ -18,6 +18,16 @@ git clone https://github.com/GlobAllomeTree/GlobAllomeTree globallometree_app
 
 yum install epel-release
 
+#################### PYTHON GENERAL ######################
+
+# PIP and python devel headers
+yum install python-pip python-devel
+# For PDF creation
+yum install libxslt-devel libxml2-devel python-lxml
+# For Python PIL
+yum install libtiff-devel libjpeg-devel libzip-devel freetype-devel lcms2-devel tcl-devel tk-devel
+
+
 #################### POSTGRESQL ######################
 
 # Change the default data directory for postgresql
