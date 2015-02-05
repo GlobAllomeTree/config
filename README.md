@@ -13,6 +13,11 @@ git clone https://github.com/GlobAllomeTree/config globallometree_config
 # Clone the app repository into globallometree_app
 git clone https://github.com/GlobAllomeTree/GlobAllomeTree globallometree_app
 
+
+#################### EPEL ########################
+
+yum install epel-release
+
 #################### POSTGRESQL ######################
 
 # Change the default data directory for postgresql
@@ -25,7 +30,7 @@ echo "PGDATA=/opt/globallometree_data/postgresql" >> /etc/sysconfig/pgsql/postgr
 
 rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
 yum update
-yum install postgresql94-server postgresql94-contrib
+yum install postgresql94-server postgresql94-contrib postgresql94-devel postgresql94-python python-psycopg2
 
 # Initialize the database in the new directory
 service postgresql-9.4 initdb
@@ -38,6 +43,7 @@ ln -s /opt/globallometree_config/postgresql/pg_hba.conf /opt/globallometree_data
 # Indicate that the postgresql service will run by default
 chkconfig postgresql-9.4 on
 
-
+# Start the postgresql service
+service postgresql-9.4 start
 
 ```
