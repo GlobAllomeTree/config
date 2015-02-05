@@ -45,7 +45,7 @@ yum install postgresql94-server postgresql94-contrib postgresql94-devel postgres
 # Initialize the database in the new directory
 service postgresql-9.4 initdb
 
-#Symlink to the config in the globallometree_config repository
+# Symlink to the config in the globallometree_config repository
 rm /opt/globallometree_data/postgresql/pg_hba.conf
 chown postgres /opt/globallometree_config/postgresql/pg_hba.conf
 ln -s /opt/globallometree_config/postgresql/pg_hba.conf /opt/globallometree_data/postgresql/pg_hba.conf
@@ -55,5 +55,17 @@ chkconfig postgresql-9.4 on
 
 # Start the postgresql service
 service postgresql-9.4 start
+
+
+###################### GLOBALLOMETREE PYTHON PACKAGES ########################
+
+# Create a virtual environment 
+virtualenv /opt/globallometree_virtualenv
+
+# Activate the environment
+source /opt/globallometree_virtualenv/bin/activate
+
+# Use pip to install the requirements
+pip install -r /opt/globallometree_app/server/requirements.txt
 
 ```
