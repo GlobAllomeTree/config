@@ -21,7 +21,7 @@ yum install epel-release
 #################### PYTHON GENERAL ######################
 
 # PIP and python devel headers
-yum install python-pip python-devel
+yum install python-pip python-devel python-virtualenv
 # For PDF creation
 yum install libxslt-devel libxml2-devel python-lxml
 # For Python PIL
