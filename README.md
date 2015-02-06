@@ -32,8 +32,7 @@ yum install libtiff-devel libjpeg-devel libzip-devel freetype-devel lcms2-devel 
 #################### POSTGRESQL ######################
 
 # Change the default data directory for postgresql
-mkdir /opt/globallometree_data/postgresql
-chown postgres /opt/globallometree_data/postgresql
+mkdir -p /opt/globallometree_data/postgresql
 
 # Let the postgresql-9.4 service know that we changed the default data directory
 mkdir -p /etc/sysconfig/pgsql
@@ -42,6 +41,7 @@ echo "PGDATA=/opt/globallometree_data/postgresql" >> /etc/sysconfig/pgsql/postgr
 rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
 yum update
 yum install postgresql94-server postgresql94-contrib postgresql94-devel postgresql94-python python-psycopg2
+chown postgres /opt/globallometree_data/postgresql
 
 # Initialize the database in the new directory
 service postgresql-9.4 initdb
