@@ -1,6 +1,9 @@
 
-#Customize elasticsearch to store its data in the opt directory
+# Customize elasticsearch to store its data in the opt directory
 path.data: /opt/globallometree_data/elasticsearch
 
-#Add in a custom cluster name and node name
+# Add in a custom cluster name and node name
 cluster.name: GlobAllomeTree
+
+# Add in the node name
+node.name: globallometree_node_01
