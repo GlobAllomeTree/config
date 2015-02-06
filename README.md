@@ -18,6 +18,8 @@ git clone https://github.com/GlobAllomeTree/GlobAllomeTree globallometree_app
 
 yum install epel-release
 ln -s /opt/globallometree_config/nginx/nginx.repo /etc/yum.repos.d/nginx.repo
+rpm --import https://packages.elasticsearch.org/GPG-KEY-elasticsearch
+ln -s /opt/globallometree_config/elasticsearch/elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
 
 #################### PYTHON GENERAL ######################
 
@@ -116,6 +118,10 @@ rm /etc/nginx/conf.d/example_ssl.conf
 
 # Symlink the config
 ln -s /opt/globallometree_config/nginx/globallometree.conf /etc/nginx/conf.d/globallometree.conf
+
+################## ELASTICSEARCH #####################
+
+yum install elasticsearch
 
 
 ```
