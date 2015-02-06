@@ -119,9 +119,23 @@ rm /etc/nginx/conf.d/example_ssl.conf
 # Symlink the config
 ln -s /opt/globallometree_config/nginx/globallometree.conf /etc/nginx/conf.d/globallometree.conf
 
+# Start nginx
+service nginx start
+
 ################## ELASTICSEARCH #####################
 
+# Install via yum
 yum install elasticsearch
+chkconfig --add elasticsearch
 
+# Link our configuration
+rm /etc/elasticsearch/elasticsearch.yml
+ln -s /opt/globallometree_config/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+
+# Create our data directory
+mkdir -p /opt/globallometree_data/elasticsearch
+
+# Start elasticsearch
+service elasticsearch start
 
 ```
