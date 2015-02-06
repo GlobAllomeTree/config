@@ -91,6 +91,19 @@ pip install -r /opt/globallometree_app/server/requirements.txt
 # Deactivate the virtual environment
 deactivate
 
+################### SUPERVISOR #############################
+
+# Install via yum
+yum install supervisor
+
+# Make sure the service is on by default
+chkconfig supervisord on
+
+# Link to our config file
+rm /etc/supervisord.conf
+ln -s /opt/globallometree_config/supervisor/supervisord.conf /etc/supervisord.conf
+service supervisord start
+
 #################### NGINX ###################
 
 # Install nginx package
