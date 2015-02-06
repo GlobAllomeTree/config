@@ -57,17 +57,38 @@ chkconfig postgresql-9.4 on
 # Start the postgresql service
 service postgresql-9.4 start
 
+# Create the database user and globallometree database
+# Switch to the postgres user for management
+sudo su postgres
+
+# Use the psql shell
+psql
+
+# In the psql shell, create the user + db
+postgres=# CREATE USER globallometree WITH PASSWORD '***';
+postgres=# CREATE DATABASE globallometree OWNER globallometree;
+postgres=# \q
+
+# Switch back to the root user from the postgres user
+exit
+
+# Import the database dump (which was uploaded via scp)
+psql -U globallometree globallometree < /opt/globallometree_data/initial/globallometree.normalized.2015.02.1.sql 
+
 
 ###################### GLOBALLOMETREE PYTHON PACKAGES ########################
 
 # Create a virtual environment 
 virtualenv /opt/globallometree_virtualenv
 
-# Activate the environment
+# Activate the virtual environment
 source /opt/globallometree_virtualenv/bin/activate
 
 # Use pip to install the requirements
 pip install -r /opt/globallometree_app/server/requirements.txt
+
+# Deactivate the virtual environment
+deactivate
 
 #################### NGINX ###################
 
