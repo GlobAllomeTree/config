@@ -134,8 +134,11 @@ ln -s /opt/globallometree_config/elasticsearch/elasticsearch.yml /etc/elasticsea
 
 # Create our data directory
 mkdir -p /opt/globallometree_data/elasticsearch
+chown elasticsearch.elasticsearch /opt/globallometree_data/elasticsearch
 
 # Start elasticsearch
 service elasticsearch start
+
+
 
 ```
