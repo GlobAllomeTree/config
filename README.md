@@ -79,7 +79,8 @@ psql -U globallometree globallometree < /opt/globallometree_data/initial/globall
 ###################### GLOBALLOMETREE PYTHON PACKAGES ########################
 
 # Create a virtual environment 
-virtualenv /opt/globallometree_virtualenv
+# We include system site packages to take advantage of lxml and psycopg2
+virtualenv --system-site-packages /opt/globallometree_virtualenv
 
 # Activate the virtual environment
 source /opt/globallometree_virtualenv/bin/activate
