@@ -139,6 +139,17 @@ chown elasticsearch.elasticsearch /opt/globallometree_data/elasticsearch
 # Start elasticsearch
 service elasticsearch start
 
+################ GLOBALLOMETREE APPLICATION ####################
 
+# Create the static and media directories
+mkdir -p /opt/globallometree_data/web/media/
+mkdir -p /opt/globallometree_data/web/static/
+
+# Collect the static media
+source /opt/globallometree_virtualenv/bin/activate
+/opt/globallometree_/manage.py collectstatic
+
+# Rebuild the allometric equation index
+/opt/globallometree_/manage.py rebuild_equation_index
 
 ```
