@@ -75,6 +75,7 @@ postgres=# \q
 exit
 
 # Import the database dump (which was uploaded via scp)
+# See https://github.com/GlobAllomeTree/config/MIGRATION.md for steps in migrating the phase 1 to phase 2 database
 psql -U globallometree globallometree < /opt/globallometree_data/initial/globallometree.normalized.2015.02.1.sql 
 
 
