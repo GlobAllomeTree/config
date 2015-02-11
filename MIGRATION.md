@@ -1,5 +1,5 @@
 
-Steps for creating a new database
+Steps for creating the phase 2 database from the phase 1 database
 
 ```
 sudo -u postgres psql
