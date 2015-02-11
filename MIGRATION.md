@@ -6,9 +6,11 @@ sudo -u postgres psql
 DROP DATABASE globallometree;
 CREATE DATABASE globallometree OWNER globallometree;
 
-cd ~/ops/dev/globallometree/
-psql -U globallometree < globallometreedb.2014.05.26.sql
+psql -U globallometree < globallometreedb.phase_1_db.sql
 
+./manage.py dbshell
+SELECT * INTO linkbox_linkbox FROM cmsplugin_linkbox;
+DROP table cmsplugin_linkbox;
 ./manage.py migrate djangocms_text_ckeditor 0001 --fake --delete-ghost-migrations
 ./manage.py migrate cms --noinput
 ./manage.py migrate djangocms_link --noinput
@@ -21,5 +23,23 @@ psql -U globallometree < globallometreedb.2014.05.26.sql
 ./manage.py migrate accounts --noinput
 ./manage.py import_countries
 ./manage.py import_biomes
+./manage.py normalize
+./manage.py geocode_accounts
+
+#Rebuild the indexes
+./manage.py rebuild_equation_index
 
 ```
+
+-- Go to admin --
+/admin/cms/page/
+Publish the home page
+Publish all the other pages
+
+-- Edit homepage --
+Change the allometric equation database box link
+
+-- Edit database page --
+Remove the geomap
+Edit the link for the Equations box to be /allometric-equations/search/
+Edit the link for the submit equations box to be /allometric-equations/submit
