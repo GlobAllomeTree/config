@@ -26,6 +26,11 @@ DROP table cmsplugin_linkbox;
 ./manage.py normalize
 ./manage.py geocode_accounts
 
+Create a tar of the old media 
+tar -czvf /tmp/media.2015.02.11.tar.gz /opt/apps/globallometree/media/
+scp to local machine
+
+
 ```
 
 -- Go to admin --
