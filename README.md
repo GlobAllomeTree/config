@@ -75,7 +75,7 @@ postgres=# \q
 exit
 
 # Import the database dump (which was uploaded via scp)
-# See https://github.com/GlobAllomeTree/config/MIGRATION.md for steps in migrating the phase 1 to phase 2 database
+# See https://github.com/GlobAllomeTree/config//blob/master/MIGRATION.md for steps in migrating the phase 1 to phase 2 database
 psql -U globallometree globallometree < /opt/globallometree_data/initial/globallometree.normalized.2015.02.1.sql 
 
 
@@ -150,7 +150,7 @@ mkdir -p /opt/globallometree_data/web/static/
 source /opt/globallometree_virtualenv/bin/activate
 /opt/globallometree_app/manage.py collectstatic
 
-# See https://github.com/GlobAllomeTree/config/MANAGEMENT.md 
+# See https://github.com/GlobAllomeTree/config/blob/master/MANAGEMENT.md 
 # for information about static media, application management, and rebuilding indexes
 
 ```
