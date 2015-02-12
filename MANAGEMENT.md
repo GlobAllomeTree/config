@@ -2,7 +2,7 @@
 ```
 source /opt/globallometree_virtualenv/bin/activate
 
-cd /opt/globallallometee_app/
+cd /opt/globallometee_app/
 
 #Rebuild the elasticsearch indexes
 ./manage.py rebuild_equation_index
