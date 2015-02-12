@@ -150,7 +150,7 @@ mkdir -p /opt/globallometree_data/web/static/
 source /opt/globallometree_virtualenv/bin/activate
 /opt/globallometree_app/manage.py collectstatic
 
-# Rebuild the allometric equation index
-/opt/globallometree_app/manage.py rebuild_equation_index
+# See https://github.com/GlobAllomeTree/config/MANAGEMENT.md 
+# for information about static media, application management, and rebuilding indexes
 
 ```
