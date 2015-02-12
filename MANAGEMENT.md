@@ -1,13 +1,18 @@
 
 ```
 source /opt/globallometree_virtualenv/bin/activate
-
+cd /opt/globallometree_app
 
 #Rebuild the elasticsearch indexes
-/opt/globallometree_app/manage.py rebuild_equation_index
-/opt/globallometree_app/manage.py rebuild_userprofile_index
+./manage.py rebuild_equation_index
+./manage.py rebuild_userprofile_index
 
 # Collect static media 
-/opt/globallometree_app/manage.py collectstatic
+./manage.py collectstatic
+
+
+
+# Restart the application
+sudo service supervisord restart
 
 ```
