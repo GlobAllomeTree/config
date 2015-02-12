@@ -146,9 +146,6 @@ service elasticsearch start
 mkdir -p /opt/globallometree_data/web/media/
 mkdir -p /opt/globallometree_data/web/static/
 
-# Collect the static media
-source /opt/globallometree_virtualenv/bin/activate
-/opt/globallometree_app/manage.py collectstatic
 
 # See https://github.com/GlobAllomeTree/config/blob/master/MANAGEMENT.md 
 # for information about static media, application management, and rebuilding indexes
