@@ -26,10 +26,6 @@ DROP table cmsplugin_linkbox;
 ./manage.py normalize
 ./manage.py geocode_accounts
 
-#Rebuild the elasticsearch indexes
-./manage.py rebuild_equation_index
-./manage.py rebuild_userprofile_index
-
 ```
 
 -- Go to admin --
