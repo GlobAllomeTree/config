@@ -2,10 +2,12 @@
 ```
 source /opt/globallometree_virtualenv/bin/activate
 
-cd /opt/globallometee_app/
 
 #Rebuild the elasticsearch indexes
-./manage.py rebuild_equation_index
-./manage.py rebuild_userprofile_index
+/opt/globallometree_app/manage.py rebuild_equation_index
+/opt/globallometree_app/manage.py rebuild_userprofile_index
+
+# Collect static media 
+/opt/globallometree_app/manage.py collectstatic
 
 ```
