@@ -19,6 +19,7 @@ DROP table cmsplugin_linkbox;
 ./manage.py migrate data --noinput
 ./manage.py migrate djangocms_text_ckeditor --noinput
 ./manage.py migrate django_extensions --noinput
+./manage.py migrate authtoken --noinput
 ./manage.py syncdb --all --noinput
 ./manage.py migrate accounts --noinput
 ./manage.py import_countries
@@ -26,10 +27,10 @@ DROP table cmsplugin_linkbox;
 ./manage.py normalize
 ./manage.py geocode_accounts
 
+
 Create a tar of the old media 
 tar -czvf /tmp/media.2015.02.11.tar.gz /opt/apps/globallometree/media/
 scp to local machine
-
 
 ```
 
@@ -37,6 +38,8 @@ scp to local machine
 /admin/cms/page/
 Publish the home page
 Publish all the other pages
+
+Create a user profile for the globallometree user
 
 -- Edit homepage --
 Change the allometric equation database box link
