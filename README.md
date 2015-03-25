@@ -150,4 +150,12 @@ mkdir -p /opt/globallometree_data/web/static/
 # See https://github.com/GlobAllomeTree/config/blob/master/MANAGEMENT.md 
 # for information about static media, application management, and rebuilding indexes
 
+
+################ FORUM APPLICATION ####################
+
+mkdir -p /opt/forum_data/media
+mkdir -p /opt/forum_data/static
+sudo service nginx restart
+sudo service supervisord restart
+
 ```
