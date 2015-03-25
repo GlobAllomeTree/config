@@ -1,7 +1,7 @@
 # server config
 GlobAllomeTree CentOS 6.5 Server configuration
 
-Please make any changes to the repository at https://github.com/GlobAllomeTree/config rather than changing these files directly
+Please make any changes to the repository at https://github.com/GlobAllomeTree/config rather than changing files on the server directly
 
 ```
 -------------------------------- Install Log ----------------------------------
