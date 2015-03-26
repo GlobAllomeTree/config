@@ -10,6 +10,13 @@ psql -U globallometree < globallometreedb.phase_1_db.sql
 
 ./manage.py dbshell
 SELECT * INTO linkbox_linkbox FROM cmsplugin_linkbox;
+
+CREATE TABLE "accounts_userchanged" (
+    "id" serial NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED
+)
+;
+
 DROP table cmsplugin_linkbox;
 ./manage.py migrate djangocms_text_ckeditor 0001 --fake --delete-ghost-migrations
 ./manage.py migrate cms --noinput
