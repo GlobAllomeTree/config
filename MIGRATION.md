@@ -55,3 +55,13 @@ Change the allometric equation database box link
 Remove the geomap
 Edit the link for the Equations box to be /allometric-equations/search/
 Edit the link for the submit equations box to be /allometric-equations/submit
+
+
+On launch
+
+Remove from nginx.conf in the config repository
+```
+location /robots.txt {
+        return 200 "User-agent: *\nDisallow: /";
+    }
+```
