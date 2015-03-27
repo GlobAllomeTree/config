@@ -154,6 +154,8 @@ Logging directory added to /opt/globallometree_logs/
 
 ################ FORUM APPLICATION ####################
 
+Logging directory added to /opt/forum_logs/
+
 
 mkdir -p /opt/forum_data/media
 mkdir -p /opt/forum_data/static
