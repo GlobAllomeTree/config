@@ -8,6 +8,8 @@ CREATE DATABASE globallometree OWNER globallometree;
 
 psql -U globallometree < globallometreedb.phase_1_db.sql
 
+Comment out the api in INSTALLED_APPS in settings.py
+
 ./manage.py dbshell
 SELECT * INTO linkbox_linkbox FROM cmsplugin_linkbox;
 DROP table cmsplugin_linkbox;
@@ -23,7 +25,6 @@ CREATE TABLE "accounts_userchanged" (
 ./manage.py migrate djangocms_link --noinput
 ./manage.py migrate djangocms_file --noinput
 ./manage.py migrate menus --noinput
-./manage.py migrate data --noinput
 ./manage.py migrate djangocms_text_ckeditor --noinput
 ./manage.py migrate django_extensions --noinput
 ./manage.py migrate authtoken --noinput
