@@ -26,8 +26,6 @@ DROP table cmsplugin_linkbox;
 ./manage.py migrate accounts --noinput
 ./manage.py import_countries
 ./manage.py import_biomes
-./manage.py normalize
-./manage.py geocode_accounts
 
 
 Create a tar of the old media 
