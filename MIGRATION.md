@@ -10,15 +10,9 @@ psql -U globallometree < globallometreedb.phase_1_db.sql
 
 Comment out the api in INSTALLED_APPS in settings.py
 
-./manage.py dbshell
+./manage.py dbshell 
 SELECT * INTO linkbox_linkbox FROM cmsplugin_linkbox;
 DROP table cmsplugin_linkbox;
-
-CREATE TABLE "accounts_userchanged" (
-    "id" serial NOT NULL PRIMARY KEY,
-    "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED
-)
-;
 
 ./manage.py migrate djangocms_text_ckeditor 0001 --fake --delete-ghost-migrations
 ./manage.py migrate cms --noinput
