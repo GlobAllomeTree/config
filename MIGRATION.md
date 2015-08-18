@@ -6,24 +6,16 @@ sudo -u postgres psql
 DROP DATABASE globallometree;
 CREATE DATABASE globallometree OWNER globallometree;
 
-psql -U globallometree < globallometreedb.phase_1_db.sql
+Initialize a new database
+./manage.py migrate 
 
-Comment out the api in INSTALLED_APPS in settings.py
+Restore selected tables from the database dump
+pg_restore -U globallometree -d globallometree --data-only -t auth_user globallometreedb-201508180929.backup
+pg_restore -U globallometree -d globallometree --data-only -t accounts_userprofile globallometreedb-201508180929.backup
+pg_restore -U globallometree -d globallometree --data-only -t cms_plugin globallometreedb-201508180929.backup
+pg_restore -U globallometree -d globallometree --data-only -t journals_journal globallometreedb-201508180929.backup
+pg_restore -U globallometree -d globallometree --data-only -t journals_article globallometreedb-201508180929.backup
 
-./manage.py dbshell 
-SELECT * INTO linkbox_linkbox FROM cmsplugin_linkbox;
-DROP table cmsplugin_linkbox;
-
-./manage.py migrate djangocms_text_ckeditor 0001 --fake --delete-ghost-migrations
-./manage.py migrate cms --noinput
-./manage.py migrate djangocms_link --noinput
-./manage.py migrate djangocms_file --noinput
-./manage.py migrate menus --noinput
-./manage.py migrate djangocms_text_ckeditor --noinput
-./manage.py migrate django_extensions --noinput
-./manage.py migrate authtoken --noinput
-./manage.py syncdb --all --noinput
-./manage.py migrate accounts --noinput
 ./manage.py import_countries
 ./manage.py import_biomes
 
