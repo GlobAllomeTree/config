@@ -12,7 +12,6 @@ Initialize a new database
 Restore selected tables from the database dump
 pg_restore -U globallometree -d globallometree --data-only -t auth_user globallometreedb-201508180929.backup
 pg_restore -U globallometree -d globallometree --data-only -t accounts_userprofile globallometreedb-201508180929.backup
-pg_restore -U globallometree -d globallometree --data-only -t cms_plugin globallometreedb-201508180929.backup
 pg_restore -U globallometree -d globallometree --data-only -t journals_journal globallometreedb-201508180929.backup
 pg_restore -U globallometree -d globallometree --data-only -t journals_article globallometreedb-201508180929.backup
 
