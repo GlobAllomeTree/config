@@ -16,6 +16,13 @@ pg_restore -U globallometree -d globallometree --data-only -t cms_plugin globall
 pg_restore -U globallometree -d globallometree --data-only -t journals_journal globallometreedb-201508180929.backup
 pg_restore -U globallometree -d globallometree --data-only -t journals_article globallometreedb-201508180929.backup
 
+Fix the auto increment
+psql -U globalometree
+SELECT setval('auth_user_id_seq', COALESCE((SELECT MAX(id)+1 FROM auth_user), 1), false);
+SELECT setval('journals_article_id_seq', COALESCE((SELECT MAX(id)+1 FROM journals_article), 1), false);
+SELECT setval('journals_journal_id_seq', COALESCE((SELECT MAX(id)+1 FROM journals_journal), 1), false);
+SELECT setval('accounts_userprofile_id_seq', COALESCE((SELECT MAX(id)+1 FROM accounts_userprofile), 1), false);
+
 ./manage.py import_countries
 ./manage.py import_biomes
 
